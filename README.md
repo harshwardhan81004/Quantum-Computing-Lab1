@@ -116,10 +116,6 @@ To add a new dependency:
 uv add numpy
 ```
 
-To upgrade an existing dependency:
-```bash
-uv lock --upgrade
-```
 
 Then re-sync:
 ```bash
