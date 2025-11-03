@@ -51,7 +51,8 @@ jobs:
           cd "$(git rev-parse --show-toplevel)"
           echo "🔍 Collecting files to lint..."
 
-          PY_FILES=$(git ls-files '*.py')
+          # Force ./ prefix so pylint treats files as paths, not module names
+          PY_FILES=$(git ls-files '*.py' | sed 's|^|./|')
           NB_FILES=$(find . -type f -name "*.ipynb" -not -path "*/.ipynb_checkpoints/*")
 
           echo "🚀 Running pylint via nbqa..."
